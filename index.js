@@ -12,7 +12,7 @@ const teamMembers = {
   engineers: [],
   interns: []
 }; 
-
+const storedId = [];
 
 const generatePrompt = (role) => {
   const questions = [
@@ -37,7 +37,10 @@ const generatePrompt = (role) => {
         }
         if (Number.isInteger(Number(id))) {
           if (Number(id) > 0) {
-            return true;
+            if (!storedId.includes(id.trim())) {
+              return true;
+            }
+            return "This employee ID already exists in out record.";
           }
           return "Employee ID has to be a positive integer.";
         }
@@ -122,9 +125,10 @@ function app() {
     inquirer
       .prompt(generatePrompt('Manager'))
       .then(({name, id, email, officeNum}) => {
-        const manager = new Manager(name, id, email, officeNum);
+        const manager = new Manager(name.trim(), id.trim(), email.trim(), officeNum.trim());
         teamMembers.manager = manager;
-        console.log(teamMembers);
+        storedId.push(id);
+        console.log(teamMembers.manager.officeNumber);
         console.log(chalk.magenta(`Team manager - ${manager.name} - added to record!`));
         console.log(chalk.gray("------------------"));
         addMembers();
@@ -165,9 +169,10 @@ function app() {
     inquirer
       .prompt(generatePrompt('Engineer'))
       .then(({name, id, email, github}) => {
-        const engineer = new Engineer(name, id, email, github);
+        const engineer = new Engineer(name.trim(), id.trim(), email.trim(), github.trim());
         teamMembers.engineers.push(engineer);
-        console.log(teamMembers);
+        storedId.push(id);
+        console.log(teamMembers.engineers[0].github);
         console.log(chalk.magenta(`Engineer - ${engineer.name} - added to record!`));
         console.log(chalk.gray("------------------"));
         addMembers();
@@ -180,9 +185,10 @@ function app() {
     inquirer
       .prompt(generatePrompt('Intern'))
       .then(({name, id, email, school}) => {
-        const intern = new Intern(name, id, email, school);
+        const intern = new Intern(name.trim(), id.trim(), email.trim(), school.trim());
         teamMembers.interns.push(intern);
-        console.log(teamMembers);
+        storedId.push(id);
+        console.log(teamMembers.interns[0].school);
         console.log(chalk.magenta(`Intern - ${intern.name} - added to record!`));
         console.log(chalk.gray("------------------"));
         addMembers();
