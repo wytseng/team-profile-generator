@@ -18,14 +18,14 @@ h3 {
   font-size: 1.4em;
 }
 
+a {
+  color: var(--brown);
+  font-weight: bold;
+}
+
 .header {
   background-color: var(--dark-green);
   color: var(--light-green);
-}
-
-.col {
-  display: flex;
-  justify-content: center;
 }
 
 .card {

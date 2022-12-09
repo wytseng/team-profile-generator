@@ -1,6 +1,6 @@
-// html helper functions go here 
-
+// Generates a string of all team member html cards
 function generateTeam({manager, engineers, interns}) {
+  // declare two empty arrays for engineer and intern cards for html strings to be pushed into 
   const engineerCards = [];
   const internCards = [];
 
@@ -14,7 +14,7 @@ function generateTeam({manager, engineers, interns}) {
       <div class="card-body">
         <ul class="list-group border-radius-0">
           <li class="list-group-item">id: ${manager.id}</li>
-          <li class="list-group-item">email: <a href="mailto:${manager.email}"></a>${manager.email}</li>
+          <li class="list-group-item">email: <a href="mailto:${manager.email}">${manager.email}</a></li>
           <li class="list-group-item">office number: ${manager.officeNumber}</li>
         </ul>
       </div>
@@ -33,8 +33,8 @@ function generateTeam({manager, engineers, interns}) {
           <div class="card-body">
             <ul class="list-group border-radius-0">
               <li class="list-group-item">id: ${engineer.id}</li>
-              <li class="list-group-item">email: <a href="mailto:${engineer.email}"></a>${engineer.email}</li>
-              <li class="list-group-item">github: <a href="https://github.com/${engineer.github}"></a>${engineer.github}</li>
+              <li class="list-group-item">email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
+              <li class="list-group-item">github: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></li>
             </ul>
           </div>
         </div>
@@ -54,8 +54,8 @@ function generateTeam({manager, engineers, interns}) {
           <div class="card-body">
             <ul class="list-group border-radius-0">
               <li class="list-group-item">id: ${intern.id}</li>
-              <li class="list-group-item">email: <a href="mailto:${intern.email}"></a>${intern.email}</li>
-              <li class="list-group-item">github: <a href="https://github.com/${intern.github}"></a>${intern.github}</li>
+              <li class="list-group-item">email: <a href="mailto:${intern.email}">${intern.email}</a></li>
+              <li class="list-group-item">school: ${intern.school}</li>
             </ul>
           </div>
         </div>
