@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
+const generatePage = require('./src/generate');
 
 const teamMembers = {
   manager: '',
@@ -196,11 +197,10 @@ function app() {
   }
 
   function renderPage() {
-    fs.writeFile(path.join('dist', 'team.html'), JSON.stringify(teamMembers), 'utf8', (err) => {
+    fs.writeFile(path.join('dist', 'team.html'), generatePage(teamMembers), 'utf8', (err) => {
       err ? console.error(err) : console.log(chalk.blueBright.bold("'About Team' page generated!"))
     });
   }
-
   createManager();
 }
 
