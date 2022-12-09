@@ -7,7 +7,11 @@ const path = require('path');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 
-const teamMembers = []; 
+const teamMembers = {
+  manager: '',
+  engineers: [],
+  interns: []
+}; 
 
 
 const generatePrompt = (role) => {
@@ -119,7 +123,7 @@ function app() {
       .prompt(generatePrompt('Manager'))
       .then(({name, id, email, officeNum}) => {
         const manager = new Manager(name, id, email, officeNum);
-        teamMembers.push(manager);
+        teamMembers.manager = manager;
         console.log(teamMembers);
         console.log(chalk.magenta(`Team manager - ${manager.name} - added to record!`));
         console.log(chalk.gray("------------------"));
@@ -162,7 +166,7 @@ function app() {
       .prompt(generatePrompt('Engineer'))
       .then(({name, id, email, github}) => {
         const engineer = new Engineer(name, id, email, github);
-        teamMembers.push(engineer);
+        teamMembers.engineers.push(engineer);
         console.log(teamMembers);
         console.log(chalk.magenta(`Engineer - ${engineer.name} - added to record!`));
         console.log(chalk.gray("------------------"));
@@ -177,7 +181,7 @@ function app() {
       .prompt(generatePrompt('Intern'))
       .then(({name, id, email, school}) => {
         const intern = new Intern(name, id, email, school);
-        teamMembers.push(intern);
+        teamMembers.interns.push(intern);
         console.log(teamMembers);
         console.log(chalk.magenta(`Intern - ${intern.name} - added to record!`));
         console.log(chalk.gray("------------------"));
