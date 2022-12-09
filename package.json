@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/wytseng/team-profile-generator#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "inquirer": "^8.2.4"
   },
   "devDependencies": {
