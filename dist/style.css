@@ -6,6 +6,10 @@
   --dark-brown: #312509;
 }
 
+/*---------------------*\
+    General Styling
+\*---------------------*/
+
 body {
   font-family: 'Treduchet MS', Helvetica, Arial, san-serif;
 }
@@ -23,10 +27,18 @@ a {
   font-weight: bold;
 }
 
+/*---------------------*\
+    Header
+\*---------------------*/
+
 .header {
   background-color: var(--dark-green);
   color: var(--light-green);
 }
+
+/*---------------------*\
+    Member Cards
+\*---------------------*/
 
 .card {
   border: 3px solid var(--brown);
