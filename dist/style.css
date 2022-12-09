@@ -1,0 +1,28 @@
+:root {
+  --dark-green: #0E3B43;
+  --mid-green: #357266;
+  --light-green: #A3BBAD;
+  --brown: #65532F;
+  --dark-brown: #312509;
+}
+
+body {
+  font-family: 'Treduchet MS', Helvetica, Arial, san-serif;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+.header {
+  background-color: var(--dark-green);
+  color: var(--light-green);
+}
+
+.card {
+  border: 3px solid var(--brown);
+}
+
+.card-header {
+  background-color: var(--light-green);
+}
